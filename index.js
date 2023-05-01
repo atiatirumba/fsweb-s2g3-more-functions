@@ -16,8 +16,13 @@
   örnek output: ""
 */
 
-function dosyaAdiniBul(/* kodlar buraya */) {
-  // kodlar buraya
+function dosyaAdiniBul(input) {
+if (!input){
+  return "";
+}
+const outputPath = input.split("/");
+const fileName = outputPath.pop();
+return fileName;
 }
 
 /*
@@ -38,9 +43,18 @@ function dosyaAdiniBul(/* kodlar buraya */) {
   örnek output: 104
 */
 
-function ortalamaBul(/* kodlar buraya */) {
-  // kodlar buraya
-}
+function ortalamaBul(numberArr) {
+
+  if ( !Array.isArray(numberArr) || numberArr.length === 0){
+    return null;
+  }
+  function arrayToplami(total, number){
+    return total + number;
+  }
+    const aritmetikOrtalama = numberArr.reduce(arrayToplami,0) / numberArr.length;
+    return aritmetikOrtalama;
+  }
+
 
 /*
   GÖREV 3
@@ -62,8 +76,13 @@ function ortalamaBul(/* kodlar buraya */) {
   örnek output: [109, 216, 288, 143, 185, 194]
 */
 
-function ortalamadanBuyukleriBul(/* kodlar buraya */) {
-  // kodlar buraya
+function ortalamadanBuyukleriBul(sayilar, ortalamaBulanFonksiyon) {
+if ( sayilar.length === 0){
+  return null;
+}
+const ortalama = ortalamaBulanFonksiyon(sayilar);
+const buyukSayilar = sayilar.filter((sayi) => sayi >= ortalama);
+return buyukSayilar;
 }
 
 /* !!!! Burdan aşağısını değiştirmeyin !!!! */
